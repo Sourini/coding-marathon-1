@@ -21,16 +21,19 @@ function BookCollectionManager() {
     setAuthor(event.target.value);
   }
 
-  // Add a new book to the list
+  function handleGenreChange(event) {
+    setGenre(event.target.value);
+  }
+
   function addBook() {
     if (title.trim() !== "" && author.trim() !== "") {
       setBooks((b) => [...b, { title, author }]);
       setTitle("");
       setAuthor(""); // Clear the input fields
+      setGenre("");
     }
   }
 
-  // Delete a book from the list
   function deleteBook(index) {
     const updatedBooks = books.filter((_, i) => i !== index);
     setBooks(updatedBooks);
@@ -59,7 +62,7 @@ function BookCollectionManager() {
           type="text"
           placeholder="Enter genre..."
           value={genre}
-          onChange={(e) => setGenre(e.target.value)}
+          onChange={handleGenreChange}
           className="input-field"
         />
         <input
@@ -106,6 +109,7 @@ function BookCollectionManager() {
                 <div className="book-info">
                   <span className="book-title">{book.title}</span>
                   <span className="book-author">by {book.author}</span>
+                  <span className="book-genre">Genre: {book.genre}</span>
                 </div>
                 <button
                   onClick={() => deleteBook(index)}
