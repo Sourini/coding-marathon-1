@@ -6,5 +6,5 @@ function RecipeManager() {
     </div>
   )
 }
- 
+  
 export default RecipeManager
