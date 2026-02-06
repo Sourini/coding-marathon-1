@@ -39,13 +39,13 @@ function RecipeManager() {
       setServings("");
       setAllergens(""); // Clear the input fields
     }
-  }
+  };
 
   // Delete a recipe from the list
   function deleteRecipe(index) {
     const updatedRecipes = recipes.filter((_, i) => i !== index);
     setRecipes(updatedRecipes);
-  }
+  };
 
   return (
     <div className="recipe-manager">
@@ -56,39 +56,44 @@ function RecipeManager() {
           placeholder="Enter cuisine..."
           value={cuisine}
           onChange={handleCuisine}
-        />
+        /> <br />
         <input
           type="text"
           placeholder="Enter difficulty..."
           value={difficulty}
           onChange={handleDifficulty}
-        />
+        /> <br />
         <input
           type="text"
-          placeholder="Enter cookitme..."
+          placeholder="Enter cooktime..."
           value={cookTime}
           onChange={handleCookTime}
-        />
+        /> <br />
         <input
           type="text"
           placeholder="Enter servings..."
           value={servings}
           onChange={handleServings}
-        />
+        /> <br />
         <input
           type="text"
           placeholder="Enter allergens..."
           value={allergens}
           onChange={handleAllergens}
-        />
+        /> <br />
         
         <button onClick={addRecipe}>Add Recipe</button>
       </div>
       <ol>
         {recipes.map((recipe, index) => (
           <li key={index}>
-            {recipe.cuisine}: {recipe.difficulty}: {recipe.cookTime}: {recipe.servings}: {recipe.allergens}
+            Cuisine: {recipe.cuisine} <br /> 
+            Difficulty: {recipe.difficulty} <br /> 
+            Cooktime: {recipe.cookTime} <br /> 
+            Servings: {recipe.servings} <br /> 
+            Allergeens: {recipe.allergens} <br />
             <button onClick={() => deleteRecipe(index)}>Delete</button>
+             <br />
           </li>
         ))}
       </ol>
