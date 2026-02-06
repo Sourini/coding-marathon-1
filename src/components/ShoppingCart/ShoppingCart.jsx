@@ -101,7 +101,7 @@ function ShoppingCart() {
           placeholder="Enter item availability..."
           value={availability}
           onChange={handleItemAvailabilityChange}
-        />
+        /><br />
         <button onClick={addItem}>Add Item</button>
       </div>
       <ol>
