@@ -27,7 +27,7 @@ function BookCollectionManager() {
 
   function addBook() {
     if (title.trim() !== "" && author.trim() !== "") {
-      setBooks((b) => [...b, { title, author }]);
+      setBooks((b) => [...b, { title, author, genre }]);
       setTitle("");
       setAuthor(""); // Clear the input fields
       setGenre("");
