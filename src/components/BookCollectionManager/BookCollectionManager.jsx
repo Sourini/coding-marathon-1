@@ -11,12 +11,10 @@ function BookCollectionManager() {
   const [pages, setPages] = useState("");
   const [rating, setRating] = useState("");
 
-  // Handle input change for title
   function handleTitleChange(event) {
     setTitle(event.target.value);
   }
 
-  // Handle input change for author
   function handleAuthorChange(event) {
     setAuthor(event.target.value);
   }
@@ -33,14 +31,19 @@ function BookCollectionManager() {
     setEdition(event.target.value);
   }
 
+  function handlePagesChange(event) {
+    setPages(event.target.value);
+  }
+
   function addBook() {
     if (title.trim() !== "" && author.trim() !== "") {
-      setBooks((b) => [...b, { title, author, genre, language, edition }]);
+      setBooks((b) => [...b, { title, author, genre, language, edition, pages }]);
       setTitle("");
       setAuthor(""); // Clear the input fields
       setGenre("");
       setLanguage("");
       setEdition("");
+      setPages("");
     }
   }
 
@@ -93,7 +96,7 @@ function BookCollectionManager() {
           type="number"
           placeholder="Enter number of pages..."
           value={pages}
-          onChange={(e) => setPages(e.target.value)}
+          onChange={handlePagesChange}
           className="input-field"
         />
         <input
@@ -122,6 +125,8 @@ function BookCollectionManager() {
                   <span className="book-genre">Genre: {book.genre}</span>
                   <span className="book-language">Language: {book.language}</span>
                   <span className="book-edition">Edition: {book.edition}</span>
+                  <span className="book-pages">Pages: {book.pages}</span>
+                  
                 </div>
                 <button
                   onClick={() => deleteBook(index)}
