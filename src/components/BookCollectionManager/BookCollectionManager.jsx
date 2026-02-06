@@ -5,6 +5,11 @@ function BookCollectionManager() {
   const [books, setBooks] = useState([]);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const [genre, setGenre] = useState("");
+  const [language, setLanguage] = useState("");
+  const [edition, setEdition] = useState("");
+  const [pages, setPages] = useState("");
+  const [rating, setRating] = useState("");
 
   // Handle input change for title
   function handleTitleChange(event) {
@@ -48,6 +53,13 @@ function BookCollectionManager() {
           placeholder="Enter author name..."
           value={author}
           onChange={handleAuthorChange}
+          className="input-field"
+        />
+        <input
+          type="text"
+          placeholder="Enter genre..."
+          value={genre}
+          onChange={(e) => setGenre(e.target.value)}
           className="input-field"
         />
         <button onClick={addBook} className="add-button">
