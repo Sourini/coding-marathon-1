@@ -76,6 +76,20 @@ function BookCollectionManager() {
           onChange={(e) => setEdition(e.target.value)}
           className="input-field" 
         />
+        <input
+          type="number"
+          placeholder="Enter number of pages..."
+          value={pages}
+          onChange={(e) => setPages(e.target.value)}
+          className="input-field"
+        />
+        <input
+          type="number"
+          placeholder="Enter rating (1-5)..."
+          value={rating}
+          onChange={(e) => setRating(e.target.value)}
+          className="input-field"
+        />
         <button onClick={addBook} className="add-button">
           Add Book
         </button>
