@@ -25,12 +25,17 @@ function BookCollectionManager() {
     setGenre(event.target.value);
   }
 
+  function handleLanguageChange(event) {
+    setLanguage(event.target.value);
+  }
+
   function addBook() {
     if (title.trim() !== "" && author.trim() !== "") {
-      setBooks((b) => [...b, { title, author, genre }]);
+      setBooks((b) => [...b, { title, author, genre, language }]);
       setTitle("");
       setAuthor(""); // Clear the input fields
       setGenre("");
+      setLanguage("");
     }
   }
 
@@ -69,7 +74,7 @@ function BookCollectionManager() {
           type="text"
           placeholder="Enter language..."
           value={language}
-          onChange={(e) => setLanguage(e.target.value)}
+          onChange={handleLanguageChange}
           className="input-field"
         />
         <input
@@ -110,6 +115,7 @@ function BookCollectionManager() {
                   <span className="book-title">{book.title}</span>
                   <span className="book-author">by {book.author}</span>
                   <span className="book-genre">Genre: {book.genre}</span>
+                  <span className="book-language">Language: {book.language}</span>
                 </div>
                 <button
                   onClick={() => deleteBook(index)}
