@@ -62,6 +62,13 @@ function BookCollectionManager() {
           onChange={(e) => setGenre(e.target.value)}
           className="input-field"
         />
+        <input
+          type="text"
+          placeholder="Enter language..."
+          value={language}
+          onChange={(e) => setLanguage(e.target.value)}
+          className="input-field"
+        />
         <button onClick={addBook} className="add-button">
           Add Book
         </button>
