@@ -35,15 +35,20 @@ function BookCollectionManager() {
     setPages(event.target.value);
   }
 
+  function handleRatingChange(event) {
+    setRating(event.target.value);
+  }
+
   function addBook() {
     if (title.trim() !== "" && author.trim() !== "") {
-      setBooks((b) => [...b, { title, author, genre, language, edition, pages }]);
+      setBooks((b) => [...b, { title, author, genre, language, edition, pages, rating }]);
       setTitle("");
       setAuthor(""); // Clear the input fields
       setGenre("");
       setLanguage("");
       setEdition("");
       setPages("");
+      setRating("");
     }
   }
 
@@ -103,7 +108,7 @@ function BookCollectionManager() {
           type="number"
           placeholder="Enter rating (1-5)..."
           value={rating}
-          onChange={(e) => setRating(e.target.value)}
+          onChange={handleRatingChange}
           className="input-field"
         />
         <button onClick={addBook} className="add-button">
@@ -126,7 +131,7 @@ function BookCollectionManager() {
                   <span className="book-language">Language: {book.language}</span>
                   <span className="book-edition">Edition: {book.edition}</span>
                   <span className="book-pages">Pages: {book.pages}</span>
-                  
+                  <span className="book-rating">Rating: {book.rating}/5</span>
                 </div>
                 <button
                   onClick={() => deleteBook(index)}
